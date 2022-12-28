@@ -1,0 +1,24 @@
+Compiled from "Concat17.java"
+public class Concat17 {
+  public Concat17();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public void main(java.lang.String[]);
+    Code:
+       0: ldc           #7                  // String A
+       2: astore_2
+       3: ldc           #9                  // String B
+       5: astore_3
+       6: ldc           #11                 // String C
+       8: astore        4
+      10: getstatic     #13                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      13: aload_2
+      14: aload_3
+      15: aload         4
+      17: invokedynamic #19,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      22: invokevirtual #23                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      25: return
+}
