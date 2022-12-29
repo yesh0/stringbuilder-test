@@ -21,7 +21,10 @@ theme: juejin
     - 与 `StringBuilder, String::join` 的性能对比测试以及原因分析
     - Java 9 字符串压缩的简单介绍
 
+本文用到的代码都放在了 [https://github.com/yesh0/stringbuilder-test]。
+
 [JEP 280: Indify String Concatenation]: https://openjdk.org/jeps/280
+[https://github.com/yesh0/stringbuilder-test]: https://github.com/yesh0/stringbuilder-test
 
 ## JMH 介绍
 
@@ -67,7 +70,7 @@ public class Concat {
 
 ### Java 8
 
-在 Java 8 的环境下获取编译结果：
+在 Java 8 的环境下获取[编译结果](https://github.com/yesh0/stringbuilder-test/blob/main/decompiled/Concat8.txt)：
 
 ```console
 $ javac Concat.java
@@ -87,7 +90,7 @@ $ javap -c Concat
 只需关注最后几行，可以看出编译器的确使用了 `StringBuilder`，
 而字节码对应的代码逻辑也就是 `new StringBuilder().append(a).append(b).append(c).toString()`。
 
-> 也就是说，Java 8 下，下面的代码和上面的例子在字节码层面上是**完全一致**的：
+> 也就是说，Java 8 下，下面的代码和上面的例子[在字节码层面上](https://github.com/yesh0/stringbuilder-test/blob/main/decompiled/Manual8.txt)是**完全一致**的：
 > ```java
 > public class Concat {
 >     public void main(String[] args) {
@@ -105,7 +108,7 @@ $ javap -c Concat
 > 下文里对应的特性是在 Java 9 实现的 [JEP 280: Indify String Concatenation] 引入的。
 > 但是 Java 9 并不是 LTS，我也懒得再去安装了，所以下面使用 Java 11 进行编译。
 
-和上面的步骤相同，这里在 Java 11 下进行编译。
+和上面的步骤相同，这里[在 Java 11 下进行编译](https://github.com/yesh0/stringbuilder-test/blob/main/decompiled/Concat11.txt)。
 
 ```java
 $ javac Concat.java
@@ -127,6 +130,7 @@ $ javap -c Concat
 也许作者想要说的是我们可以重复使用一个 `StringBuilder` 实例？
 
 我们可以对重复使用与不重复使用这两种情况进行性能测试。
+（测试代码在[这里](https://github.com/yesh0/stringbuilder-test/blob/main/src/main/java/org/sample/StringBuilderBenchmark.java)。）
 
 `mvn clean verify` 后使用 `java -jar target/benchmarks.jar -jvmArgs "-Xms1024m" -jvmArgs "-Xmx1024m" -prof gc` 运行测试，
 这里我们指定了内存大小，并加上了 `-prof gc` 选项用于统计不同情况下的 GC 负载。
@@ -244,6 +248,8 @@ JVM 在执行到这一条 `InvokeDynamic` 指令时会自动使用 `makeConcatWi
 
 #### Latin-1 字符集以及分析
 
+（测试代码在[这里](https://github.com/yesh0/stringbuilder-test/blob/main/src/main/java/org/sample/StringBuilderLatinBenchmark.java)。）
+
 | 字符串拼接方式                             |                    数值 | 单位    |
 |--------------------------------------------|------------------------:|:--------|
 | 1. Indy 普通 `a + b + c`                   | `9220938.932±72935.317` | `ops/s` |
@@ -276,6 +282,7 @@ JVM 在执行到这一条 `InvokeDynamic` 指令时会自动使用 `makeConcatWi
 #### 含中文的测试以及字符串压缩
 
 有趣的是，使用了中文字符的测试结果会更富戏剧性一些。
+（测试代码在[这里](https://github.com/yesh0/stringbuilder-test/blob/main/src/main/java/org/sample/StringBuilderBenchmark.java)。）
 
 | 字符串拼接方法                                 |                   数值 | 单位    |
 |------------------------------------------------|-----------------------:|:--------|
