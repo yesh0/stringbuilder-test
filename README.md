@@ -284,6 +284,10 @@ JVM 在执行到这一条 `InvokeDynamic` 指令时会自动使用 `makeConcatWi
 </details>
 
 > 上面这部分测试用的数据用的都是英文字符，用中英文掺杂时 `StringBuilder` 可能会慢一些。这部分在下面的测试中有体现。
+>
+> 可以看到 `String::join` 的性能也非常好。这是因为测试是在 Java 19 环境下运行的。（想试 Loom 嘛，懒得换回去了。）
+> 在 Java 17 之前，`String::join` 内部直接使用了 `StringJoiner`，原理和不重复使用 `StringBuilder` 一样。
+> Java 17 之后，`String::join` 被优化了（[JDK-8265237](https://bugs.openjdk.org/browse/JDK-8265237)），其实现与下面介绍的策略基本一致。
 
 可以看到这三种方式的性能较为相近，甚至 `a + b + c` 会更快一些。
 
@@ -292,7 +296,7 @@ JVM 在执行到这一条 `InvokeDynamic` 指令时会自动使用 `makeConcatWi
 - 可能性二：预估分配内存的大小 `new StringBuilder(a.length() + b.length() + c.length()).append(a).append(b).append(c).toString()` 实现。
 
 明显这两种策略都达不到重复使用 `StringBuilder` 的性能。所以尽管 Java 9 时用户可以通过一些选项来使用上述的策略，
-但在 Java 15 后，我们只剩下了下图右侧这种几乎是最优的策略。我们来对比一下：
+但在 Java 15 后（[JDK-8245455](https://bugs.openjdk.org/browse/JDK-8245455)），我们只剩下了下图右侧这种几乎是最优的策略。我们来对比一下：
 
 > ```mermaid
 > graph TD
@@ -361,14 +365,22 @@ JVM 在执行到这一条 `InvokeDynamic` 指令时会自动使用 `makeConcatWi
    1. 先当作可以压缩来处理，**以能够压缩为前提分配一次内存，尝试进行一次复制**；
    2. 如果最后发现不能压缩，那么**再以没有压缩的内存量再分配一次内存**。
 
+在 Java 19 之前，只要只要涉及到中文字符，那么 `builder.toString()` 都会进行上面的两次内存分配。
+Java 19 （[JDK-8282429](https://bugs.openjdk.org/browse/JDK-8282429)）虽然稍微改进了一下，但 `builder.setLength(0)` 之后，`builder.toString()` 还是会进行两次内存分配。
+
 当然，你可以说 `StringBuilder` 的处理太不合理了：后续加入中文字符串的时候，它就应该可以推测出最后不能进行压缩。
-但遗憾的是，`StringBuilder` 目前的实现就是这样。
+但遗憾的是，截至 Java 19，`StringBuilder` 目前的实现还是这样。
 
 ## 总结
 
 - 在 Java 9 及以后的版本，请大胆使用 `a + b + c + ...`。
+  - Java 9 后这里的字符串拼接使用了 `InvokeDynamic` 指令，默认会准确计算长度，只进行一次内存分配。
+    同时，它生成最终字符串时会使用字符串的内部 API，比起 `StringBuilder` 来说少了一次复制。
+  - Java 9 字符串拼接有不同的策略，默认策略就是上面所说的策略。其它策略在 Java 15 之后被删除掉了。
 - 有对应的工具方法的操作，如 `String::join`，那还是用对应的方法好一点。
-- 在开启字符串压缩的情况下，重复使用同一个 `StringBuilder` 时，拼接无法压缩的（如中文）字符串会引来一次额外的内存分配。（至少现在 2022 年年末还是这样。）
+  - `String::join` 在 Java 17 之前使用 `StringJoiner`，Java 17 之后采用了类似上面所说的优化。
+- 在开启字符串压缩的情况下，`StringBuilder` 拼接无法压缩的（如中文）字符串会引来一次额外的内存分配。（至少 Java 19 在 `builder.setLength(0)` 后还会这样。）
+- 循环进行的字符串拼接不在本文讨论范围内，请自行进行测试。
 
 当然，我相信大多数应用的性能瓶颈都不会是在字符串拼接上。
 本文做的最多也就是给各位从 Java 8 版本升级找多一个理由罢了。
