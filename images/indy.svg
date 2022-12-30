@@ -1,0 +1,83 @@
+<svg width="718" height="419" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" viewBox="0 0 718 419">
+<rect width="718" height="419" x="0" y="0" id="0" fill="none"></rect>
+<path d="M71.8 349.5L646.2 349.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 301.5L646.2 301.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 252.5L646.2 252.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 204.5L646.2 204.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 156.5L646.2 156.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 108.5L646.2 108.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 60.5L646.2 60.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 60.5L646.2 60.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 108.5L646.2 108.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 156.5L646.2 156.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 204.5L646.2 204.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 252.5L646.2 252.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 301.5L646.2 301.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M71.8 349.5L646.2 349.5" fill="none" stroke="#E0E6F1"></path>
+<path d="M72.5 349L72.5 60" fill="none" stroke="#5470C6" stroke-linecap="round"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="-6" transform="translate(71.8 45)" fill="#5470C6">速度</text>
+<path d="M646.5 60L646.5 349" fill="none" stroke="#91CC75" stroke-linecap="round"></path>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:12px;font-family:sans-serif;" y="-6" transform="translate(646.2 45)" fill="#91CC75">累积内存分配</text>
+<path d="M71.8 349.5L646.2 349.5" fill="none" stroke="#6E7079" stroke-linecap="round"></path>
+<path d="M167.5 349L167.5 354" fill="none" stroke="#6E7079"></path>
+<path d="M359.5 349L359.5 354" fill="none" stroke="#6E7079"></path>
+<path d="M550.5 349L550.5 354" fill="none" stroke="#6E7079"></path>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(63.8 349)" fill="#5470C6">0 Mops/s</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(63.8 300.8333)" fill="#5470C6">0.2 Mops/s</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(63.8 252.6667)" fill="#5470C6">0.4 Mops/s</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(63.8 204.5)" fill="#5470C6">0.6 Mops/s</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(63.8 156.3333)" fill="#5470C6">0.8 Mops/s</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(63.8 108.1667)" fill="#5470C6">1 Mops/s</text>
+<text dominant-baseline="central" text-anchor="end" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(63.8 60)" fill="#5470C6">1.2 Mops/s</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(654.2 60)" fill="#91CC75">0 kB/op</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(654.2 108.1667)" fill="#91CC75">10 kB/op</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(654.2 156.3333)" fill="#91CC75">20 kB/op</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(654.2 204.5)" fill="#91CC75">30 kB/op</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(654.2 252.6667)" fill="#91CC75">40 kB/op</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(654.2 300.8333)" fill="#91CC75">50 kB/op</text>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" xml:space="preserve" transform="translate(654.2 349)" fill="#91CC75">60 kB/op</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="7" transform="translate(167.5333 357)" fill="black">不重复使用 StringBuilder</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="7" transform="translate(359 357)" fill="black">重复使用 StringBuilder</text>
+<text dominant-baseline="central" text-anchor="middle" style="font-size:14px;font-family:sans-serif;" xml:space="preserve" y="7" transform="translate(550.4667 357)" fill="black">Java 9 普通 a + b + c</text>
+<path d="M480.5813 349l63.5321 0l0 -247.8481l-63.5321 0Z" fill="#5470C6"></path>
+<path d="M480.5813 349l63.5321 0l0 -247.8481l-63.5321 0Z" fill="url(#zr3-p0)"></path>
+<path d="M289.1147 349l63.5321 0l0 -189.669l-63.5321 0Z" fill="#5470C6"></path>
+<path d="M289.1147 349l63.5321 0l0 -189.669l-63.5321 0Z" fill="url(#zr3-p0)"></path>
+<path d="M97.648 349l63.5321 0l0 -73.8787l-63.5321 0Z" fill="#5470C6"></path>
+<path d="M97.648 349l63.5321 0l0 -73.8787l-63.5321 0Z" fill="url(#zr3-p0)"></path>
+<path d="M556.8199 60l63.5321 0l0 51.5158l-63.5321 0Z" fill="#91CC75"></path>
+<path d="M556.8199 60l63.5321 0l0 51.5158l-63.5321 0Z" fill="url(#zr3-p1)"></path>
+<path d="M365.3532 60l63.5321 0l0 77.2548l-63.5321 0Z" fill="#91CC75"></path>
+<path d="M365.3532 60l63.5321 0l0 77.2548l-63.5321 0Z" fill="url(#zr3-p1)"></path>
+<path d="M173.8865 60l63.5321 0l0 184.5762l-63.5321 0Z" fill="#91CC75"></path>
+<path d="M173.8865 60l63.5321 0l0 184.5762l-63.5321 0Z" fill="url(#zr3-p1)"></path>
+<path d="M-5 -5l176 0l0 24l-176 0Z" transform="translate(276 5)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#ccc" stroke-width="0"></path>
+<path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(276 5)" fill="#5470C6"></path>
+<path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(276 5)" fill="url(#zr3-p0)"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(276 5)" fill="#333">速度</text>
+<path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(340 5)" fill="#91CC75"></path>
+<path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(340 5)" fill="url(#zr3-p1)"></path>
+<text dominant-baseline="central" text-anchor="start" style="font-size:12px;font-family:sans-serif;" x="30" y="7" transform="translate(340 5)" fill="#333">累积内存分配</text>
+<defs >
+<pattern width="1" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(29.999999999999996)" id="zr3-p0">
+<g >
+<path d="M0 -7l1 0l0 2l-1 0Z" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M1 -7l1 0l0 2l-1 0Z" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M0 0l1 0l0 2l-1 0Z" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M1 0l1 0l0 2l-1 0Z" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+</g>
+</pattern>
+<pattern width="16" height="12" patternUnits="userSpaceOnUse" id="zr3-p1">
+<g >
+<path d="M6.4 -3A2.4 2.4 0 1 1 6.4 -3.0002" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M22.4 -3A2.4 2.4 0 1 1 22.4 -3.0002" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M0 3A0 0 0 1 1 0 3" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M14.4 3A2.4 2.4 0 1 1 14.4 2.9998" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M16 3A0 0 0 1 1 16 3" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M30.4 3A2.4 2.4 0 1 1 30.4 2.9998" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M6.4 9A2.4 2.4 0 1 1 6.4 8.9998" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+<path d="M22.4 9A2.4 2.4 0 1 1 22.4 8.9998" fill="rgb(0,0,0)" fill-opacity="0.2"></path>
+</g>
+</pattern>
+</defs>
+</svg>
